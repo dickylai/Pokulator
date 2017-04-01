@@ -17,6 +17,9 @@ public class Record {
         }
     }
 
+    public IndividualRecord GetUserRoundRecord (int user) {
+        return individualRecords.get(user);
+    }
 //    public String GetRecord () {
 //        // TODO: print name + card lefts
 //    }

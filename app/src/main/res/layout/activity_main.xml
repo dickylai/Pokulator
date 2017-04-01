@@ -13,6 +13,7 @@
         android:layout_marginTop="64dp"
         android:onClick="StartNewGame"
         android:text="START A GAME"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

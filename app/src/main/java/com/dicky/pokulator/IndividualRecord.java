@@ -13,8 +13,8 @@ public class IndividualRecord {
         this.cardLeft = cardLeft;
     }
 
-    public String GetUserName () {
-        return user.GetName();
+    public User GetUser () {
+        return user;
     }
 
     public int GetCardLeft () {

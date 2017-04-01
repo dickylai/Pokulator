@@ -32,8 +32,12 @@ public class MainActivity extends AppCompatActivity {
         Spinner dirInput = (Spinner) findViewById(R.id.dirInput);
 
         // validation
-        if (betInput.getText().toString().equals("")) return;
-        double bet = Double.parseDouble (betInput.getText().toString());
+        double bet;
+        try {
+            bet = Double.parseDouble(betInput.getText().toString());
+        } catch (Exception e) { // no input for the boxes
+            return;
+        }
         int dir = dirInput.getSelectedItemPosition();
 
         Game.getInstance().StartGame(bet, dir);

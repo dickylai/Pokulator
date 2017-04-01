@@ -23,7 +23,7 @@ public class User {
     }
 
     public boolean IsEqual (User user2) {
-        return (this.id == user2.GetId()) ? true : false;
+        return (this.name.equals(user2.GetName()));
     }
 
     public String GetName () {

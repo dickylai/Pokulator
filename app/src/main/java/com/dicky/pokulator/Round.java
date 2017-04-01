@@ -8,17 +8,19 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 public class Round {
-    private static final AtomicInteger countRound = new AtomicInteger(0);
     private int roundNo;
     private boolean clockDir;
     private Record record;
 
-    public Round (boolean clockDir, ArrayList<User> users, int[] cardLefts) {
-        roundNo = countRound.incrementAndGet();
+    public Round (int roundNo, boolean clockDir, ArrayList<User> users, int[] cardLefts) {
+        this.roundNo = roundNo;
         this.clockDir = clockDir;
         record = new Record (users, cardLefts);
     }
 
+    public Record GetRoundRecord () {
+        return record;
+    }
 //    public string PrintRoundRecord () {
 //        // TODO: print round numeber + direction + record
 //    }

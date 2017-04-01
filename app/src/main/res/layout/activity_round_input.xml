@@ -6,11 +6,183 @@
     android:layout_height="match_parent"
     tools:context="com.dicky.pokulator.RoundInputActivity">
 
+    <TableLayout
+        android:layout_width="256dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/tableLayout"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/Round">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="32dp">
+
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/cardLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cards"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/nameInput1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Player1" />
+
+            <EditText
+                android:id="@+id/cardInput1"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/nameInput2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Player2" />
+
+            <EditText
+                android:id="@+id/cardInput2"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/nameInput3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Player3" />
+
+            <EditText
+                android:id="@+id/cardInput3"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/nameInput4"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Player4" />
+
+            <EditText
+                android:id="@+id/cardInput4"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0" />
+
+        </TableRow>
+
+    </TableLayout>
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/dir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="38dp" />
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:text="Direction of Play: "
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tableLayout"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <TextView
+        android:id="@+id/dirValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-1dp"
+        android:layout_marginTop="8dp"
+        android:text="Clockwise"
+        android:textSize="20sp"
+        app:layout_constraintRight_toRightOf="@+id/tableLayout"
+        app:layout_constraintTop_toBottomOf="@+id/dir" />
+
+    <TextView
+        android:id="@+id/Round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Round: "
+        android:textSize="20sp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tableLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="48dp" />
+
+    <TextView
+        android:id="@+id/RoundValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="0dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/Round"
+        app:layout_constraintTop_toTopOf="@+id/Round" />
+
+    <Button
+        android:id="@+id/EndRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="StartNewRound"
+        android:text="End This Round"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dirValue" />
+
 </android.support.constraint.ConstraintLayout>
