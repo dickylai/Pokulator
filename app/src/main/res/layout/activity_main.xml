@@ -6,13 +6,64 @@
     android:layout_height="match_parent"
     tools:context="com.dicky.pokulator.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="64dp"
+        android:onClick="StartNewGame"
+        android:text="START A GAME"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/bet"
+        app:layout_constraintVertical_bias="0.501" />
+
+    <EditText
+        android:id="@+id/betInput"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:hint="(e.g. 0.5)"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/bet"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bet" />
+
+    <Spinner
+        android:id="@+id/dirInput"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dir"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dir" />
+
+    <TextView
+        android:id="@+id/bet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Bet per card ($)"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="64dp"
+        app:layout_constraintTop_toBottomOf="@+id/dir" />
+
+    <TextView
+        android:id="@+id/dir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direction of Play"
+        android:textSize="24sp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="64dp" />
 
 </android.support.constraint.ConstraintLayout>

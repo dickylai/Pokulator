@@ -10,24 +10,27 @@ public class Game {
     private ArrayList<User> users;
     private ArrayList<Round> rounds;
 
-    private int bet;
-    private boolean currentClockrise;
+    private double bet;
+    private boolean currentClockwise;
     private boolean iter;
 
-    public Game (int bet, int direction) {
+    private static final Game game = new Game ();
+    public static Game getInstance() {return game;}
+
+    public void StartGame (double bet, int direction) {
         users = new ArrayList<User> ();
         rounds = new ArrayList<Round> ();
         if (direction == 0) iter = true;
         else {
             iter = false;
-            currentClockrise = (direction == 1) ? true : false;
+            currentClockwise = (direction == 1) ? true : false;
         }
     }
 
     public void StartNewRound (ArrayList<User> users, int[] cardLefts) {
-        rounds.add (new Round (currentClockrise, users, cardLefts));
+        rounds.add (new Round (currentClockwise, users, cardLefts));
         updateBalance();
-        if (iter) currentClockrise = !currentClockrise;
+        if (iter) currentClockwise = !currentClockwise;
     }
 
     private void updateBalance () {
