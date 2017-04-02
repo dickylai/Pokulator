@@ -29,14 +29,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cardLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cards"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </TableRow>
 
@@ -151,22 +153,24 @@
         android:id="@+id/Round"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="Round: "
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="@+id/tableLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="48dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RoundValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="0"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@+id/Round"
-        app:layout_constraintTop_toTopOf="@+id/Round"
-        android:layout_marginStart="8dp" />
+        app:layout_constraintTop_toTopOf="@+id/Round" />
 
     <Button
         android:id="@+id/EndRound"
@@ -180,5 +184,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dirValue" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/holo_red_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EndRound" />
 
 </android.support.constraint.ConstraintLayout>

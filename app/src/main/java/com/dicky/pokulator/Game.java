@@ -75,20 +75,16 @@ public class Game {
                 if (i == j) continue;
                 temp += record.GetUserRoundRecord(j).GetCardLeft() - record.GetUserRoundRecord(i).GetCardLeft();
             }
-            record.GetUserRoundRecord(i).GetUser().SetBalance(temp);
+            record.GetUserRoundRecord(i).GetUser().SetBalance(temp*bet);
         }
     }
 
-    public void GetAllBalance () {
-        for (User user : users) {
-            // TODO: print balance list
-        }
+    public ArrayList<User> GetAllUsers () {
+        return users;
     }
 
-    public void GetRecordList () {
-        for (Round round : rounds) {
-            // TODO: print record list
-        }
+    public ArrayList<Round> GetRoundList () {
+        return rounds;
     }
 
     public int GetRoundNo () {

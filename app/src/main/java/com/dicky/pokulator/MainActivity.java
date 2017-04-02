@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,16 +27,22 @@ public class MainActivity extends AppCompatActivity {
         s.setAdapter(adapter);
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     public void StartNewGame (View view) {
         Intent intent = new Intent(this, SwipeActivity.class);
         EditText betInput = (EditText) findViewById(R.id.betInput);
         Spinner dirInput = (Spinner) findViewById(R.id.dirInput);
 
+        TextView error = (TextView) findViewById(R.id.error);
         // validation
         double bet;
         try {
             bet = Double.parseDouble(betInput.getText().toString());
         } catch (Exception e) { // no input for the boxes
+            error.setText("Bet value is required.");
             return;
         }
         int dir = dirInput.getSelectedItemPosition();

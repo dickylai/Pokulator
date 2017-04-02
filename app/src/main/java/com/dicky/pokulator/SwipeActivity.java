@@ -22,7 +22,16 @@ public class SwipeActivity extends FragmentActivity {
         swipeAdaptor = new SwipeAdaptor(getSupportFragmentManager());
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(swipeAdaptor);
-        viewPager.setCurrentItem(0);
+        viewPager.setCurrentItem(1);
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
+
+    public void EndThisGame (View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void EndThisRound (View view) {
@@ -44,26 +53,35 @@ public class SwipeActivity extends FragmentActivity {
         names.add(nameInput3.getText().toString());
         names.add(nameInput4.getText().toString());
 
+        TextView error = (TextView) findViewById(R.id.error);
+
         try {
             cardLefts[0] = Integer.parseInt(cardInput1.getText().toString());
             cardLefts[1] = Integer.parseInt(cardInput2.getText().toString());
             cardLefts[2] = Integer.parseInt(cardInput3.getText().toString());
             cardLefts[3] = Integer.parseInt(cardInput4.getText().toString());
         } catch (Exception e) { // no input for the boxes
+            error.setText("Card value(s) are required.");
             return;
         }
 
         // validation
         for (int i = 0; i < 4; i++) {
             for (int j = i+1; j < 4; j++) {
-                if (names.get(i).equals(names.get(j))) return;
+                if (names.get(i).equals(names.get(j))) {
+                    error.setText("Duplicated names are detected.");
+                    return;
+                }
             }
         }
         int countZero = 0;
         for (int i = 0; i < 4; i++) {
             if (cardLefts[i] == 0) countZero++;
         }
-        if (countZero != 1) return;
+        if (countZero != 1) {
+            error.setText("More than one winner are found.");
+            return;
+        }
 
         Game.getInstance().EndRound(names, cardLefts);
 

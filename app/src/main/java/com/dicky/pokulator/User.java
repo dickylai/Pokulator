@@ -34,7 +34,7 @@ public class User {
         return balance;
     }
 
-    public void SetBalance (int change) {
+    public void SetBalance (double change) {
         balance += change;
     }
 }

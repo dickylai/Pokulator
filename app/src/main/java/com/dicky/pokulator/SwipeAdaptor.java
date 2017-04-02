@@ -18,9 +18,11 @@ public class SwipeAdaptor extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         Fragment fragment;
         if (position == 0) {
+            fragment = new RecordsFragment();
+        } else if (position == 1) {
             fragment = new RoundInputFragment();
         } else {
-            fragment = new RecordsFragment();
+            fragment = new BalanceFragment();
         }
 
         return fragment;
@@ -28,6 +30,6 @@ public class SwipeAdaptor extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 }
