@@ -1,41 +1,31 @@
 package com.dicky.pokulator;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RoundInputActivity extends AppCompatActivity {
+public class SwipeActivity extends FragmentActivity {
+    static final int NUM_OF_ITEMS = 3;
+    ViewPager viewPager;
+    SwipeAdaptor swipeAdaptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_round_input);
-
-        TextView roundValue = (TextView) findViewById(R.id.RoundValue);
-        roundValue.setText(String.valueOf(Game.getInstance().GetRoundNo()));
-
-        TextView dirValue = (TextView) findViewById(R.id.dirValue);
-        String dirText = (Game.getInstance().GetCurrentClockwise()) ? "Clockwise" : "Anti-clockwise";
-        dirValue.setText(dirText);
-
-        if (Game.getInstance().GetRoundNo() > 1) {
-            EditText nameInput1 = (EditText) findViewById(R.id.nameInput1);
-            nameInput1.setText(Game.getInstance().GetLastRoundNames().get(0));
-            EditText nameInput2 = (EditText) findViewById(R.id.nameInput2);
-            nameInput2.setText(Game.getInstance().GetLastRoundNames().get(1));
-            EditText nameInput3 = (EditText) findViewById(R.id.nameInput3);
-            nameInput3.setText(Game.getInstance().GetLastRoundNames().get(2));
-            EditText nameInput4 = (EditText) findViewById(R.id.nameInput4);
-            nameInput4.setText(Game.getInstance().GetLastRoundNames().get(3));
-        }
+        setContentView(R.layout.activity_swipe);
+        swipeAdaptor = new SwipeAdaptor(getSupportFragmentManager());
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setAdapter(swipeAdaptor);
+        viewPager.setCurrentItem(0);
     }
 
-    public void StartNewRound (View view) {
+    public void EndThisRound (View view) {
         ArrayList<String> names = new ArrayList<String>();
         int[] cardLefts = new int[4];
 
@@ -77,7 +67,7 @@ public class RoundInputActivity extends AppCompatActivity {
 
         Game.getInstance().EndRound(names, cardLefts);
 
-        Intent intent = new Intent(this, RoundInputActivity.class);
+        Intent intent = new Intent(this, SwipeActivity.class);
         startActivity(intent);
     }
 }

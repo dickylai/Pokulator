@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dicky.pokulator.RoundInputActivity">
+    tools:context="com.dicky.pokulator.RoundInputFragment">
 
     <TableLayout
         android:layout_width="256dp"
         android:layout_height="200dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginRight="64dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginStart="32dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -132,7 +131,6 @@
         android:id="@+id/dir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="32dp"
         android:text="Direction of Play: "
         android:textSize="20sp"
@@ -143,7 +141,6 @@
         android:id="@+id/dirValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="-1dp"
         android:layout_marginTop="8dp"
         android:text="Clockwise"
         android:textSize="20sp"
@@ -156,7 +153,6 @@
         android:layout_height="wrap_content"
         android:text="Round: "
         android:textSize="20sp"
-        android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="48dp" />
@@ -166,18 +162,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="0dp"
         android:text="0"
         android:textSize="20sp"
         app:layout_constraintLeft_toRightOf="@+id/Round"
-        app:layout_constraintTop_toTopOf="@+id/Round" />
+        app:layout_constraintTop_toTopOf="@+id/Round"
+        android:layout_marginStart="8dp" />
 
     <Button
         android:id="@+id/EndRound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:onClick="StartNewRound"
+        android:onClick="EndThisRound"
         android:text="End This Round"
         android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.502"

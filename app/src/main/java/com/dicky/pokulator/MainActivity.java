@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void StartNewGame (View view) {
-        Intent intent = new Intent(this, RoundInputActivity.class);
+        Intent intent = new Intent(this, SwipeActivity.class);
         EditText betInput = (EditText) findViewById(R.id.betInput);
         Spinner dirInput = (Spinner) findViewById(R.id.dirInput);
 
