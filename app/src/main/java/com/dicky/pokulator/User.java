@@ -22,8 +22,8 @@ public class User {
         return id;
     }
 
-    public boolean IsEqual (User user2) {
-        return (this.name.equals(user2.GetName()));
+    public boolean IsIdSmaller (User user2) {
+        return (this.id < user2.GetId());
     }
 
     public String GetName () {

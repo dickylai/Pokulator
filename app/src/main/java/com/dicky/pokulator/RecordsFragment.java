@@ -3,9 +3,11 @@ package com.dicky.pokulator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
@@ -26,11 +28,9 @@ public class RecordsFragment extends Fragment {
     TableRow tr;
     TextView p1Str, p2Str, p3Str, p4Str, roundStr;
 
-
     public RecordsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

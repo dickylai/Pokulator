@@ -34,6 +34,15 @@ public class SwipeActivity extends FragmentActivity {
         startActivity(intent);
     }
 
+    public void UndoRound (View view) {
+        if (Game.getInstance().IsUndoAction()) return;
+        if (Game.getInstance().GetRoundNo() > 1) {
+            Game.getInstance().UndoRound();
+            Intent intent = new Intent(this, SwipeActivity.class);
+            startActivity(intent);
+        }
+    }
+
     public void EndThisRound (View view) {
         ArrayList<String> names = new ArrayList<String>();
         int[] cardLefts = new int[4];
@@ -79,7 +88,7 @@ public class SwipeActivity extends FragmentActivity {
             if (cardLefts[i] == 0) countZero++;
         }
         if (countZero != 1) {
-            error.setText("More than one winner are found.");
+            error.setText("One winner should be provided.");
             return;
         }
 

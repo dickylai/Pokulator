@@ -14,9 +14,6 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class RoundInputFragment extends Fragment {
-    private int roundNo;
-    private boolean currentClockwise;
-    private String name1, name2, name3, name4;
 
     public RoundInputFragment() {
         // Required empty public constructor
@@ -34,7 +31,7 @@ public class RoundInputFragment extends Fragment {
         String dirText = (Game.getInstance().GetCurrentClockwise()) ? "Clockwise" : "Anti-clockwise";
         dirValue.setText(dirText);
 
-        if (Game.getInstance().GetRoundNo() > 1) {
+        if (Game.getInstance().GetRoundNo() > 1 || Game.getInstance().IsUndoAction()) {
             EditText nameInput1 = (EditText) v.findViewById(R.id.nameInput1);
             nameInput1.setText(Game.getInstance().GetLastRoundNames().get(0));
             EditText nameInput2 = (EditText) v.findViewById(R.id.nameInput2);
@@ -43,6 +40,17 @@ public class RoundInputFragment extends Fragment {
             nameInput3.setText(Game.getInstance().GetLastRoundNames().get(2));
             EditText nameInput4 = (EditText) v.findViewById(R.id.nameInput4);
             nameInput4.setText(Game.getInstance().GetLastRoundNames().get(3));
+        }
+
+        if (Game.getInstance().IsUndoAction()) {
+            EditText cardInput1 = (EditText) v.findViewById(R.id.cardInput1);
+            cardInput1.setText(String.valueOf(Game.getInstance().GetLastRoundCards()[0]));
+            EditText cardInput2 = (EditText) v.findViewById(R.id.cardInput2);
+            cardInput2.setText(String.valueOf(Game.getInstance().GetLastRoundCards()[1]));
+            EditText cardInput3 = (EditText) v.findViewById(R.id.cardInput3);
+            cardInput3.setText(String.valueOf(Game.getInstance().GetLastRoundCards()[2]));
+            EditText cardInput4 = (EditText) v.findViewById(R.id.cardInput4);
+            cardInput4.setText(String.valueOf(Game.getInstance().GetLastRoundCards()[3]));
         }
 
         return v;
